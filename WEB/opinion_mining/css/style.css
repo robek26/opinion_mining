@@ -1,0 +1,118 @@
+.custom-top-header {
+   display: block;
+   margin-left: auto;
+   margin-right: auto; 
+   margin-top : 45px; 
+   
+}
+
+.custom-title{
+	text-align : center;
+	margin: auto; 
+	font-size: 30px;
+	font-family: 'Helvetica Neue', Helvetica;
+	color : #444;
+	margin-top : 10px; 
+}
+
+.custom-span{
+	font-family: 'Helvetica Neue', Helvetica;
+}
+
+.custom-top-space{
+	margin-top:15px;
+	margin-bottom:15px;
+	padding-bottom: 10px;
+}
+
+.custom-panel{
+	margin-top:30px;
+	margin-bottom:30px;
+	padding-bottom: 10px;
+}
+
+.custom-para{
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:20px;
+	display:block;
+}
+
+
+.custom-txt-bigger{
+	max-width: 100%;
+	line-height: 22px;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	height: 65px;
+	cursor: text;
+}
+
+.bootstrap-tagsinput {
+    width: 100%;
+    min-height : 50px;
+}
+
+
+
+.chart {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.percent {
+  display: inline-block;
+  line-height: 110px;
+  z-index: 2;
+}
+.percent:after {
+  content: '%';
+  margin-left: 0.1em;
+  font-size: .8em;
+}
+
+.small-chart{
+	position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.small-chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.small-percent {
+  display: inline-block;
+  line-height: 60px;
+  font-size:10px;
+  z-index: 2;
+}
+.small-percent:after {
+  content: '%';
+  margin-left: 0.1em;
+  font-size: .8em;
+}
+
+
+.chart_bot_label{
+	display:block;
+	position:relative;
+	bottom : 0;
+    width : 100%;
+    font-size: 15px;
+    font-family: 'Helvetica Neue', Helvetica;
+}

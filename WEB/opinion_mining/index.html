@@ -1,0 +1,680 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="bootstrap3/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap3/css/bootstrap-tagsinput.css">
+
+</head>
+<body>
+  <div class="container" id="first_page" style = "display:block;">
+          <div class="row">
+            <img src='imgs/logo4.png' class="img-responsive custom-top-header" style = 'height : 130px;' />
+          	<h5 class = 'custom-title'>Opinion Mining</h5>
+          </div>
+          <div class="row custom-top-space">
+            <div class="col-sm-2"></div>
+           <div class="col-sm-8">
+            <!--<p>Select a tab to gather data.</p> -->
+          </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row" style = 'padding-top:15px;'>
+             <div class="col-sm-2"></div>
+             <div class="col-sm-8">
+             <ul class="nav nav-tabs nav-justified">
+                 <li class="active" id='tab_lf_li'><a href="#" id='tab_lf'>Local File</a></li>
+                 <li id='tab_fb_li'><a href="#" id='tab_fb'>Facebook</a></li>
+                 <li id='tab_tw_li'><a href="#" id='tab_tw'>Twitter</a></li>
+            </ul>
+            <div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class = "row panel custom-panel" style = 'margin-left:2px;margin-right:2px;'>
+                 <div id="file_local_container" class = "row" style = "display:block;"> 
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='file' data-toggle="tooltip" title = 'Choose a csv file that contains list of reviews and comments.' ><span class="glyphicon glyphicon-question-sign"></span> Choose CSV File:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type="file" name='file' id="file" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='file_features' data-toggle="tooltip" title = 'If you want to extract sentiments of specific key points then use features. For example: if you upload a car review. then the features will be drivability,comfort,speed,design etc... The sentiment analyzer will then search for sentences that contain these key points and identify their sentiments.' ><span class="glyphicon glyphicon-question-sign"></span> Features:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='file_features' id = 'file_features'  class="form-control" data-role="tagsinput"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+                </div>
+
+                <div id="fb_container" class = "row" style = "display:none;"> 
+                        
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10" style='margin-bottom:15px;'>
+                              <span class="custom-span" style="margin-left:16px;"> To get access token: </span><a href='https://developers.facebook.com/tools/explorer/'  target="_blank" >click here</a>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+                        
+                      
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='fb_acc_token' data-toggle="tooltip" title = 'Token to have temporary access on facebook user data.' ><span class="glyphicon glyphicon-question-sign"></span> Access Token:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='fb_acc_token' id = 'fb_acc_token'  class="form-control"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='fb_user_id' data-toggle="tooltip" title = 'The Id of the user who posted on facebook.' ><span class="glyphicon glyphicon-question-sign"></span> User id:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='fb_user_id' id = 'fb_user_id'  class="form-control"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='fb_post_id' data-toggle="tooltip" title = 'Id of the post on which users commented on.'><span class="glyphicon glyphicon-question-sign"></span> Post id:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='fb_post_id' id = 'fb_post_id'  class="form-control"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='fb_max_limit' data-toggle="tooltip" title = 'The maximum number of comments to load from facebook post.' ><span class="glyphicon glyphicon-question-sign"></span> Max Limit:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='number' name ='fb_max_limit' id = 'fb_max_limit'  class="form-control"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='fb_features' data-toggle="tooltip" title = 'If you want to extract sentiments of specific key points then use features. For example: if you upload a car review. then the features will be drivability,comfort,speed,design etc... The sentiment analyzer will then search for sentences that contain these key points and identify their sentiments.' ><span class="glyphicon glyphicon-question-sign"></span> Features:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='fb_features' id = 'fb_features'  class="form-control" data-role="tagsinput"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+                </div>
+
+
+                <div id="tw_container" class = "row" style = "display:none;"> 
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='tw_keywords' data-toggle="tooltip" title = 'keywords to search for tweets' ><span class="glyphicon glyphicon-question-sign"></span> Keywords:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='tw_keywords' id = 'tw_keywords'  class="form-control" data-role="tagsinput"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='tw_features' data-toggle="tooltip" title = 'If you want to extract sentiments of specific key points then use features. For example: if you upload a car review. then the features will be drivability,comfort,speed,design etc... The sentiment analyzer will then search for sentences that contain these key points and identify their sentiments.' ><span class="glyphicon glyphicon-question-sign"></span> Features:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='text' name ='tw_features' id = 'tw_features'  class="form-control" data-role="tagsinput"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          <div class="row custom-top-space">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                              <div class="col-sm-4">
+                                <label  for='fb_max_limit' data-toggle="tooltip" title = 'The maximum number of tweets to load.'><span class="glyphicon glyphicon-question-sign"></span> Max Limit:</label>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type='number' name ='tw_max_limit' id = 'tw_max_limit'  class="form-control"/>
+                              </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                          </div>
+
+                          
+                </div>
+          </div>
+        <div class="row custom-top-space" style = 'padding-top : 20px;'>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button id = 'submit-data' type="button" class="btn btn-success" style = 'width: 100%;'>Submit</button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog" >
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class = "container" style = 'width:100%;'>
+                   <div class = "row" id='upload-modal-body' style = 'display:block;'>
+                          <div class="row" style = 'width:100%;'>
+                            <div class='col-sm-12'>
+                              <h4 style='color : #555;'>Uploading File...</h4>
+                            </div>
+                          </div>
+                          <div class="row" style = 'width:100%;margin-top:10px;'>
+                            <div class='col-sm-11'>
+                                <div class="progress">
+                                  <div class="progress-bar" role="progressbar" id = "progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                </div>
+                                
+                            </div>
+                            <div class='col-sm-1' style = "margin-top:-10px;">
+                              <h4 style='color : #555;cursor:pointer;' id="cancel_upload">  X  </h4>
+                            </div>
+                          </div>
+                  </div>
+                  <div  class = "row" id='processing-modal-body' style='display:none;'>
+                          <div class="row" style = 'width:100%;'>
+                            <div class='col-sm-2' >
+                              <img src='imgs/loading1.gif' style = 'width:100%;'/>
+                            </div>
+                            <div class='col-sm-9' style = "margin-top:13px;">
+                              <h5 style='color : #555;'>Please wait few moments while the data is analyzed...  </h5>
+                            </div>
+                            <div class='col-sm-1' style = "margin-top:13px;">
+                              <h4 style='color : #555;cursor:pointer;' id="abort_submit">  X  </h4>
+                            </div>
+                          </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+          
+  </div>
+</div>
+</div>
+
+
+
+  <div class="container" id="second_page" style = "display:none;" >
+
+        <div class="row" style = 'background-color : #fff;'>
+             
+               <img id='go_home' src='imgs/logo4.png' class="img-responsive custom-top-header"  style = "height : 100px;"/>
+               <h5 class = 'custom-title' >Opinion Mining</h5>
+        </div>
+        <div class="row" style="margin-top:25px;">
+
+                <h5 class = 'custom-title' style = "font-size : 20px;margin-top:40px;color:#888;" id="comm_count">Overall Sentiment: 12,234</h5>
+        </div>
+
+        <!-- Overall Sentiment -->
+
+        <div class="row" style="background-color:#fff;">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            <div class="row">
+               <div class="col-sm-4" style = 'text-align: center;'> 
+                 
+                  <span class="chart " color="green" data-percent="30" id="over_all_pos" >
+                    <span class="percent"></span>
+                  </span>
+                
+                  <span class="chart_bot_label" style="font-size : 17px;">Positive</span>
+                  
+               </div>
+               <div class="col-sm-4" style = 'text-align: center;'>
+                   <span class="chart "  color="orange" data-percent="43" id="over_all_neu">
+                      <span class="percent"></span>
+                   </span>
+                   <span class="chart_bot_label" style="font-size : 17px;">Neutral</span>
+               </div>
+               <div class="col-sm-4" style="text-align: center;">
+                   <span class="chart"  color="red" data-percent="27" id="over_all_neg">
+                      <span class="percent"></span>
+                   </span>
+                   <span class="chart_bot_label" style="font-size : 17px;">Negative</span>
+               </div>
+              </div>
+           </div>
+        </div>
+      
+
+        <!-- End of Overall Sentiment -->
+
+        <!-- Feature Sentiment -->
+        <div class="row" style="margin-top:25px;background-color:#fff;" >
+                <h5 class = 'custom-title' style = "font-size : 20px;margin-top:40px;color:#888;">Features Sentiment</h5>
+        </div>
+        <div class="row" style="background-color:#fff;">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-7" id = "f_sentiment">
+                    <!--  Here lies individual feature rows --> 
+         </div>
+         <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            <div class="row">
+               <div class="col-sm-4"></div>
+                  <div class="col-sm-4">
+                      <button id = "btn-homepage" style="margin-bottom:30px;margin-top:30px;margin-left:32px;" type="button" class="btn btn-success" >Return To Home Page</button>
+                  </div>
+                  <div class="col-sm-4"></div>
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+
+
+        
+  </div>
+
+</body>
+<script src='js/jquery203.min.js'></script>
+<script src='bootstrap3/js/bootstrap.min.js'></script>
+<script src='bootstrap3/js/bootstrap-tagsinput.js'></script>
+<script src='js/jquery.easypiechart.min.js'></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src='js/sender.js'></script>
+  
+<script>
+
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+$('#go_home').on('click',function(){
+     $('#second_page').css('display','none');
+     $('#first_page').css('display','block');
+});
+
+$('#btn-homepage').on('click',function(){
+     $('#second_page').css('display','none');
+     $('#first_page').css('display','block');
+});
+
+
+
+
+$('#submit-data').on('click',function(){
+
+    //current open tab
+
+    open_tab = $('.nav').find('.active').find('a').html();
+    cancel = false;
+
+    if(open_tab == "Local File"){
+       action = 'op_file_sentiment';
+       blobfile = $('#file').prop('files')[0];
+
+       features = $('#file_features').tagsinput('items');
+       if(features.length == 1 && features != ''){
+         features = features + ',';
+       }
+       
+       if(blobfile == null || features == ''){
+         alert('please fill all information.');
+         return;
+       }
+
+       //start sending data
+        
+        var formData = new FormData();
+        formData.append('action',action);
+        formData.append("filedata", blobfile);
+        formData.append('features',features);
+
+        if(xhr != null){
+           xhr.abort();
+         }
+
+
+        $('#myModal').modal({ backdrop: 'static', keyboard: false });
+        $('#progressbar').css('width' , '0%');
+        $('#progressbar').html('0%');
+        var xhr = createCORSRequest('POST', "http://127.0.0.1:21000",true);
+        xhr.onreadystatechange = function () {
+              if(xhr.status == 0 && cancel == false){
+                alert('there was a problem communicating with the server');
+                $('#myModal').modal('hide');
+                xhr.abort();
+              }
+              if (xhr.readyState == XMLHttpRequest.DONE) {
+                  if(xhr.status == 200){
+                    $('#myModal').modal('hide');
+                    var data = xhr.responseText;
+                    load_result_page(data);
+                  }
+                  
+              }
+          };
+
+        xhr.upload.addEventListener('progress', progress_track, false);
+        xhr.send(formData);
+         
+        
+       
+
+
+
+    }
+    else if(open_tab == "Facebook"){
+      action = 'fb_sentiment';
+      fb_acc_token = $('#fb_acc_token').val();
+      fb_post_id = $('#fb_post_id').val();
+      fb_user_id = $('#fb_user_id').val();
+      fb_max_limit = $('#fb_max_limit').val();
+      fb_features = $('#fb_features').tagsinput('items');
+      if(fb_features.length == 1 && fb_features != ''){
+         fb_features = fb_features + ',';
+      }
+
+      if(fb_features == '' || fb_acc_token == '' || fb_post_id == '' || fb_user_id == '' || fb_max_limit == ''){
+          alert('please fill all information.');
+          return;
+      }
+
+      if(xhr != null){
+        xhr.abort();
+      }
+
+      //start sending data
+
+      var formData = new FormData();
+      formData.append('action',action);
+      formData.append('access_token',fb_acc_token);
+      formData.append('post_id',fb_post_id);
+      formData.append("user_id",fb_user_id);
+      formData.append('maxlimit',fb_max_limit);
+      formData.append('features',fb_features);
+
+      $('#myModal').modal({ backdrop: 'static', keyboard: false });
+      $('#upload-modal-body').css('display','none');
+      $('#processing-modal-body').css('display','block');
+        var xhr = createCORSRequest('POST', "http://127.0.0.1:21000",true);
+        xhr.onreadystatechange = function () {
+              if(xhr.status == 0 && cancel == false){
+                alert('there was a problem communicating with the server');
+                $('#myModal').modal('hide');
+                xhr.abort();
+              }
+              if (xhr.readyState == XMLHttpRequest.DONE) {
+                  if(xhr.status == 200){
+                    $('#myModal').modal('hide');
+                    var data = xhr.responseText;
+                    load_result_page(data);
+                  }
+                  
+              }
+          };
+
+        
+        xhr.send(formData);
+      
+
+
+    
+    }
+    else if(open_tab == "Twitter"){
+      action = 'twitter_sentiment';
+      tw_max_limit = $('#tw_max_limit').val();
+      tw_features = $('#tw_features').tagsinput('items');
+      if(tw_features.length == 1 && tw_features != ''){
+         tw_features = tw_features + ',';
+      }
+
+      tw_keywords = $('#tw_keywords').tagsinput('items');
+      if(tw_keywords.length == 1 && tw_keywords != ''){
+         tw_keywords = tw_keywords + ',';
+      }
+
+      if(tw_features == '' || tw_keywords == '' || tw_max_limit == ''){
+          alert('please fill all information.');
+          return;
+      }
+
+      //start sending data
+      
+
+      var formData = new FormData();
+      formData.append('action',action);
+      formData.append('maxlimit',tw_max_limit);
+      formData.append('features',tw_features);
+      formData.append('keywords',tw_keywords);
+
+      if(xhr != null){
+        xhr.abort();
+      }
+
+      $('#myModal').modal({ backdrop: 'static', keyboard: false });
+      $('#upload-modal-body').css('display','none');
+      $('#processing-modal-body').css('display','block');
+        var xhr = createCORSRequest('POST', "http://127.0.0.1:21000",true);
+        xhr.onreadystatechange = function () {
+              if(xhr.status == 0 && cancel == false){
+                alert('there was a problem communicating with the server');
+                $('#myModal').modal('hide');
+                xhr.abort();
+              }
+              if (xhr.readyState == XMLHttpRequest.DONE) {
+                  if(xhr.status == 200){
+                    $('#myModal').modal('hide');
+                    var data = xhr.responseText;
+                    load_result_page(data);
+                  }
+                  
+              }
+          };
+
+        
+        xhr.send(formData);
+     
+      
+    }
+
+    
+    $('#cancel_upload').on('click',function(){
+       cancel = true;
+       xhr.abort();
+       $('#myModal').modal('hide');
+    });
+    $('#abort_submit').on('click',function(){
+      cancel = true;
+       xhr.abort();
+       $('#myModal').modal('hide');
+    });
+    
+
+});
+
+
+// Managing  tab buttons
+
+$('#tab_lf').on('click',function(){
+    $('#tw_container').css('display','none');
+    $('#fb_container').css('display','none');
+    $('#file_local_container').css('display','block');
+
+    $('#tab_lf_li').attr('class','active');
+    $('#tab_fb_li').attr('class','');
+    $('#tab_tw_li').attr('class','');
+});
+
+$('#tab_fb').on('click',function(){
+    $('#tw_container').css('display','none');
+    $('#fb_container').css('display','block');
+    $('#file_local_container').css('display','none');
+
+    $('#tab_lf_li').attr('class','');
+    $('#tab_fb_li').attr('class','active');
+    $('#tab_tw_li').attr('class','');
+
+});
+
+$('#tab_tw').on('click',function(){
+    $('#tw_container').css('display','block');
+    $('#fb_container').css('display','none');
+    $('#file_local_container').css('display','none');
+
+    $('#tab_lf_li').attr('class','');
+    $('#tab_fb_li').attr('class','');
+    $('#tab_tw_li').attr('class','active');
+});
+
+
+function load_result_page(response){
+  $('#second_page').css('display','block');
+  $('#first_page').css('display','none');
+
+  //response = response.replace(/'/g, '"');
+  
+   res = JSON.parse(response);
+
+   //console.log("my object: %o",res);
+
+   //Overall Sentiment
+
+   total_comm = res["Number Of Comments"];
+   overall_sent = res['Overall Sentiment'];
+   pos_per = (overall_sent['Pos'] / total_comm) * 100
+   neu_per = (overall_sent['Neu'] / total_comm) * 100
+   neg_per = (overall_sent['Neg'] / total_comm) * 100
+
+   
+   $('#comm_count').html('Overall Sentiment: ' + total_comm);
+   $('#over_all_pos').attr('data-percent',pos_per);
+   $('#over_all_neg').attr('data-percent',neg_per);
+   $('#over_all_neu').attr('data-percent',neu_per);
+   
+   //Feature sentiment
+
+   f_total_row = "<div class='row' style='margin-top:60px;background-color:#fff;'><div class='col-sm-6' style = 'text-align: center;font-size : 17px;'><span>Features</span></div><div class='col-sm-2' style = 'text-align: center;font-size : 17px;'><span>Positive</span></div><div class='col-sm-2' style = 'text-align: center;font-size : 17px;'><span>Neutral</span></div><div class='col-sm-2' style = 'text-align: center;font-size : 17px;'><span>Negative</span></div></div>";
+   
+   for(var key in res['Feature Sentiment']){
+
+       f_res = res['Feature Sentiment'][key];
+       f_tot = f_res['Pos'] + f_res['Neg'] + f_res['Neu'];
+
+       f_pos_per = (f_res['Pos'] / f_tot) * 100;
+       f_neu_per = (f_res['Neu'] / f_tot) * 100;
+       f_neg_per = (f_res['Neg'] / f_tot) * 100;
+
+
+       f_row = "<div class='row' style='margin-top:20px;'><div class='col-sm-6' style = 'text-align: center;height:60px;display:block;margin-top:18px;'><span class='custom-span'>" + key + " : " + f_tot +"</span></div><div class='col-sm-2' style = 'text-align: center;'><span class='small-chart' color='green' data-percent='" + f_pos_per +"' ><span class='small-percent'></span></span></div><div class='col-sm-2' style = 'text-align: center;'><span class='small-chart' color='orange' data-percent='" + f_neu_per +"' ><span class='small-percent'></span></span></div><div class='col-sm-2' style = 'text-align: center;'><span class='small-chart' color='red' data-percent='" + f_neg_per + "' ><span class='small-percent'></span></span></div></div>";
+
+
+       f_total_row = f_total_row + f_row;
+      
+   }
+
+    $('#f_sentiment').html(f_total_row);
+
+    $('.chart').easyPieChart({
+        barColor: function () {
+          color = $(this.el).attr('color')
+            return (color == "red" ? '#dd0000' : color == "green" ? '#00aa00' : '#ffa500');
+          },
+        // The color of the track for the bar, false to disable rendering.
+        trackColor: '#f2f2f2',
+        // The color of the scale lines, false to disable rendering.
+        scaleColor: false,
+        size: 110,
+        onStep: function(from, to, percent) {
+            $(this.el).find('.percent').text(Math.round(percent));
+             
+        }
+    });
+      
+
+
+    $('.small-chart').easyPieChart({
+        barColor: function () {
+              color = $(this.el).attr('color')
+                return (color == "red" ? '#dd0000' : color == "green" ? '#00aa00' : '#ffa500');
+              },
+        // The color of the track for the bar, false to disable rendering.
+        trackColor: '#f2f2f2',
+        // The color of the scale lines, false to disable rendering.
+        scaleColor: false,
+        size: 60,
+        onStep: function(from, to, percent) {
+            $(this.el).find('.small-percent').text(Math.round(percent));
+
+        }
+    });
+
+}
+
+
+function progress_track(e){
+    $('#upload-modal-body').css('display','block');
+    $('#processing-modal-body').css('display','none');
+
+    prog = Math.round((e.loaded / e.total) * 100) + '%';
+    if(prog != 'NaN%'){
+      console.log('Uploading: ' + prog); 
+      $('#progressbar').css('width' , prog);
+      $('#progressbar').html(prog);
+    }
+
+    if(prog == '100%'){
+      $('#upload-modal-body').css('display','none');
+      $('#processing-modal-body').css('display','block');
+    }
+} 
+
+</script>
+</html>
